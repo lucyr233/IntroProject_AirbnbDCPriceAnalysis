@@ -1,4 +1,4 @@
-abdc<-read.csv('W:/GWU1.0/data mining/project/ab.csv')
+abdc<-read.csv('ab.csv')
 #feature engineering, measure the length of all kinds of description information provided by host
 abdc$summary<-as.character(abdc$summary)
 for (i in 1:n){
@@ -91,8 +91,8 @@ for(i in 1:n){
 as$minnight<-as.factor(as$minnight)
 table(as$minnight)
 
-write.csv(as,file='W:/GWU1.0/data mining/project/cleaning1.csv')
-as2<-read.csv('W:/GWU1.0/data mining/project/cleaning1.csv')
+write.csv(as,file='cleaning1.csv')
+as2<-read.csv('cleaning1.csv')
 
 as2$extrafee[is.na(as2$extrafee)]<-0
 as2$minnight[as$minimum_nights==1]<-1
@@ -103,10 +103,10 @@ as2$reviewamount[is.na(as2$reviewamount)]<-'morethan 1'
 as2$price<-as.numeric(as$price)
 
 as2$reviews_per_month[!is.na(as2$reviews_per_month)]<-as.numeric(as2$reviews_per_month[!is.na(as2$reviews_per_month)])
-write.csv(as2,file='W:/GWU1.0/data mining/project/cleaningdone.csv')
+write.csv(as2,file='cleaningdone.csv')
 
 ##########################
-ab<-read.csv('W:/GWU1.0/data mining/project/cleaningdone.csv')
+ab<-read.csv('cleaningdone.csv')
 #select the columns that really apply to our question
 c<-c(15:18,22:25,30:36,39,44:46,49,51,54:63,66:81)
 abs1<-ab[,c]
